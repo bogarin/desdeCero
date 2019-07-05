@@ -1,4 +1,5 @@
 'use estrict'
+const config = require('../config/config.js')
 const express = require('express')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
@@ -10,10 +11,7 @@ app.use(bodyParser.json())
 
 
 
-const port = process.env.PORT || 3001
-const dbname = process.env.NAME_DATABASE || 'shop'
-
-mongoose.connect(`mongodb://localhost:1717/${dbname}`, {useNewUrlParser: true})
+mongoose.connect(`mongodb://localhost:${config.portdb}/${config.dbname}`, {useNewUrlParser: true})
 //product
 app.get('/api/product',(req, res)=>{
     Products.find({},(err,products)=>{
@@ -33,7 +31,6 @@ app.get('/api/product/:productId',(req, res)=>{
 })
 
 app.post('/api/product',(req, res) => {
-    console.log(req.body)
     let product = new Products()
     product.name = req.body.name
     product.picture = req.body.picture
@@ -49,17 +46,29 @@ app.post('/api/product',(req, res) => {
 })
 
 app.put('/api/product/:productId',(req, res)=>{
-    
+    let productId = req.params.productId
+    let update = req.body
+    Products.findByIdAndUpdate(productId,update,(err,product)=>{
+        res.status(200).send({message:'Actualización exitosa'})   
+    })
 })
 
 
 app.delete('/api/product/:productId',(req, res)=>{
-    
+    let productId=req.params.productId
+    Products.findById(productId, (err,product)=>{
+        if(product==null)res.status(404).send({message:`Producto no existe`})
+        product.remove(err =>{
+            if(err) res.status(500).send({message:`Error al borrar el producto ${err}`})
+            
+            res.status(200).send({message:`El producto ha sido borrado`})
+        })
+    })
 })
 
 
-app.listen(port,()=>{
-    console.log(`Trabajando en el purto:${port}`)
-    console.log(`http://localhost:${port}`)
-    console.log(`trabajando enla base de datos: ${dbname}`)
+app.listen(config.port,()=>{
+    console.log(`Trabajando en el purto:${config.port}`)
+    console.log(`http://localhost:${config.port}`)
+    console.log(`trabajando enla base de datos: ${config.dbname}`)
 })

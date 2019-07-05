@@ -1,2 +1,8 @@
 # Dependency directories
 node_modules/
+
+# data the mongodb
+data/
+
+# dotenv environment variables file
+.env
