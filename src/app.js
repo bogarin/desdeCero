@@ -1,7 +1,7 @@
 'use estrict'
-const config = require('../config/config.js')
+const config = require('../config/configENV.js')
 const mongoose = require('mongoose')
-const app = require('../roules/roules.js')
+const app = require('../routes/routes.js')
 mongoose.connect(`mongodb:${config.urlmongodb}${config.portdb}/${config.dbname}`,{useNewUrlParser: true},(err,res)=>{
     if(err) {
         return console.log(`Error al conectarse ${err}`)

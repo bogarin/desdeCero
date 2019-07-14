@@ -1,5 +1,5 @@
 'use estrict'
-const Products = require('../models/product.js')
+const Products = require('../models/product')
 
 function getProducts(req, res){
     Products.find({},(err,products)=>{

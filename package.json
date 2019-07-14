@@ -4,7 +4,7 @@
   "description": "aprendiendo Nodejs",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon src/app.js",
+    "watch": "nodemon src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,9 +18,13 @@
   },
   "homepage": "https://github.com/bogarin/desdeCero#readme",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
     "body-parse": "^0.1.0",
+    "crypto": "^1.0.1",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "jwt-simple": "^0.5.6",
+    "moment": "^2.24.0",
     "mongoose": "^5.6.3"
   },
   "devDependencies": {

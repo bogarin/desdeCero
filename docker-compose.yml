@@ -9,7 +9,7 @@ services:
     ports:
       - ${PORT_DOCKER_MONGODB}:27017
     volumes:
-       - ./data:/data/db/
+       - ./dataMongoDB:/data/db/
 
   mongo-express:
     image: mongo-express
