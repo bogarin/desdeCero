@@ -1,7 +1,7 @@
 'use strict'
 const jwt = require('jwt-simple')
 const moment = require('moment')
-const config = require('./configENV')
+const config = require('./env')
 
 function createToken(user){
     const playload = {

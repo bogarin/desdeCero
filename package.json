@@ -2,10 +2,10 @@
   "name": "desdecero",
   "version": "1.0.0",
   "description": "aprendiendo Nodejs",
-  "main": "src/app.js",
+  "main": "public/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "watch": "nodemon src/app.js",
+    "start": "node public/app.js",
+    "watch": "nodemon public/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

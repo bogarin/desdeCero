@@ -1,6 +1,6 @@
 'use estrict'
-const productCtrl= require('../controllers/product')
-const Auth = require('../middlewares/auth')
+const productCtrl= require('../resources/controllers/product')
+const Auth = require('../resources/middlewares/auth')
 const express = require('express')
 const api = express.Router()
 api.get('/product',Auth,productCtrl.getProducts)
