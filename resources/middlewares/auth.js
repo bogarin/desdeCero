@@ -1,6 +1,5 @@
 'use strict'
-
-const services = require('../config/token')
+const services = require('../../config/token')
 
 function isAuth (req, res, next) {
     if (!req.headers.authorization) {

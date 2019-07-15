@@ -1,6 +1,6 @@
 'use strict'
 const User = require('../models/user')
-const service = require('../config/token')
+const service = require('../../config/token')
 
 function signUp (req, res) {
     const user = new User({

@@ -1,6 +1,5 @@
 'use estrict'
-const userCtrl = require('../controllers/user')
-// const Auth = require('../middlewares/auth')
+const userCtrl = require('../resources/controllers/user')
 const express = require('express')
 const api = express.Router()
 api.post('/signup', userCtrl.signUp)
