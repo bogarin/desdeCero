@@ -2,6 +2,7 @@
 const request = require("supertest")
 const app = require('../../public/app')
 const factory = require('../factories')
+const faker = require('faker') 
 
 describe('Authentication',() => { 
   it("should return status 403 when not authenticated", async () => {
@@ -14,6 +15,15 @@ describe('Authentication',() => {
       .post("/api/signin")
       .send({email: "bogarin@mi.com",password: "123456"})
     expect(response.body).toHaveProperty("token");
+  })
+
+  it("should return status 200 when sing up", async () => {
+    const response = await request(app)
+      .post("/api/signup")
+      .send({email :faker.internet.email(),
+        displayName:faker.name.findName(),
+        password:faker.internet.password()})
+      expect(response.body).toHaveProperty("token");
   })
 
   it("should return status 200 when authenticated", async () => {
