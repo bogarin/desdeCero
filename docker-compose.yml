@@ -11,6 +11,12 @@ services:
     volumes:
        - ./dataMongoDB:/data/db/
 
+  mailhog:
+    image: mailhog/mailhog
+    ports: 
+      - 1025:1025
+      - 8025:8025
+      
   mongo-express:
     image: mongo-express
     restart: always
