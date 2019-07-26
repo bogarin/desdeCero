@@ -9,3 +9,6 @@ dataMongoDB/
 
 #vscode
 .vscode/
+
+#yarn
+yarn.lock
